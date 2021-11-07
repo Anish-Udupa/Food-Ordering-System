@@ -1,6 +1,17 @@
-# Getting Started with Create React App
+# Food Ordering System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the official repository 'Food Ordering System' Project.
+
+## RULES
+1. Make sure that you have [node.js](https://nodejs.org/en/) installed.
+2. Make sure that your javascript file is in the correct folder under 'src'.
+3. Make sure that there is only one class in a javascript file.
+4. The name of the react class should be the name of the javascript file.
+5. React classnames should always be in [Pascal Case](https://betterprogramming.pub/string-case-styles-camel-pascal-snake-and-kebab-case-981407998841).
+6. The functions in the class should be in [Camel Case](https://en.wikipedia.org/wiki/Camel_case).
+7. The attributes id and className must be in [Kebab Case](https://betterprogramming.pub/string-case-styles-camel-pascal-snake-and-kebab-case-981407998841).
+8. Test your code by including the component in index.js
+
 
 ## Available Scripts
 
