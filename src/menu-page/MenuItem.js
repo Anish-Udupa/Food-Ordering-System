@@ -18,7 +18,8 @@ class MenuItem extends React.Component{
                 <img src={this.props.imgsrc.pizza} alt={this.props.imgalt} />
                 <p className="title">{this.props.title}</p>
                 <p className="desc">{this.props.desc}</p>
-
+                <div className="">
+                </div>
             </div>
         );
     }
