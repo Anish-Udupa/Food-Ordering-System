@@ -1,0 +1,51 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+}
+
+.menu-item{
+    margin: 5px;
+    border: 1px solid black;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.price-quantity{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.price, .quantity{
+    display: flex;
+    flex-direction: row;
+}
+
+.increment-button, .decrement-button {
+    color: #fff;
+    background-color: #f00;
+    padding: 0px 5px;
+    margin: 0px 5px;
+    cursor: pointer;
+}
+
+.add-to-cart-button{
+    color: #fff;
+    background-color: #f00;
+    text-align: center;
+    padding: 5px 0px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    height: 150px;
+}
