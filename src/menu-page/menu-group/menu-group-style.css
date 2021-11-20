@@ -1,0 +1,23 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.menu-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-group-text{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 50px;
+}
+
+.menu-subgroup{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
