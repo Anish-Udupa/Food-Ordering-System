@@ -4,7 +4,48 @@ import MenuItem from '../menu-item/MenuItem';
 
 var foodObj = {
     starter: [
-        
+        {
+            title: "Pasta Masala Mafia",
+            desc: "Spicy succulent sauce with red/yellow capsicum, tomato cubes, onion, chilli, garlic cooked to perfection, tossed with fresh cream and parsely.",
+            imgsrc: '/images/menu-page/pasta_masala_mafia.png',
+            imgalt: "Image of a Pasta Masala Mafia",
+            price: 200
+        },
+        {
+            title: "Pummorola",
+            desc: "Fresh tomato sauce, fresh basil and parmesan cheese.",
+            imgsrc: '/images/menu-page/pummorola.png',
+            imgalt: "Image of a Pummorola",
+            price: 150
+        },
+        {
+            title: "Pasta Bolognese",
+            desc: "Spaghetti served with sauce made of fresh tomato and soya mince.",
+            imgsrc: '/images/menu-page/pasta_bolognese.png',
+            imgalt: "Image of a Pasta Bolognese",
+            price: 150
+        },
+        {
+            title: "Jalapeno Poppers",
+            desc: "Melted cheese nuggets with jalapenos deep fried and served with mayonnaise dip.",
+            imgsrc: '/images/menu-page/jalapeno_poppers.jpg',
+            imgalt: "Image of a Jalapeno Poppers",
+            price: 100
+        },
+        {
+            title: "Jalapeno Salsa",
+            desc: "Jalapeno tossed in creamy sauce, served with thin crispy toast.",
+            imgsrc: '/images/menu-page/jalapeno_salsa.jpg',
+            imgalt: "Image of a Jalapeno Salsa",
+            price: 200
+        },
+        {
+            title: "Cheese Fondue",
+            desc: "Melted cheese in white wine with italian herbs, served with croutons and exotic vegetables.",
+            imgsrc: '/images/menu-page/cheese_fondue.jpg',
+            imgalt: "Image of a Cheese Fondue",
+            price: 300
+        }
     ],
     pizza: [
         {
@@ -75,93 +116,128 @@ var foodObj = {
         {
             title: "Garlic Bread",
             desc: "A bread topped with garlic and butter and then roasted to bring out the flavour. Comes in pieces of 10",
-            imgsrc: '#',
+            imgsrc: '/images/menu-page/garlic_bread.png',
             imgalt: "Image of a Garlic Bread",
             price: 50
         },
         {
             title: "Cheese Garlic Bread",
             desc: "A bread topped with garlic, butter and cheese and then roasted to bring out the flavour. Comes in pieces of 10.",
-            imgsrc: '#',
+            imgsrc: '/images/menu-page/cheese_garlic_bread.jpg',
             imgalt: "Image of a Cheese Garlic Bread",
             price: 75
         },
         {
             title: "Chilli Cheese Garlic Bread",
             desc: "A bread topped with garlic, butter, chilli, some herbs and cheese and then roasted to bring out the flavour. Comes in pieces of 10",
-            imgsrc: '#',
+            imgsrc: '/images/menu-page/chilli_cheese_garlic_bread.png',
             imgalt: "Image of a Chilli Cheese Garlic Bread",
             price: 100
         },
         {
             title: "Veggie Roll",
             desc: "A roll spread with San Marzano tomato sauceon the inside and then filled with cabbage, carrots, and a few other vegetables.",
-            imgsrc: '#',
+            imgsrc: '/images/menu-page/veggie_roll.jpg',
             imgalt: "Image of a Veggie Roll",
             price: 75
         },
         {
             title: "French Fries",
             desc: "Y'all know what this is- the best snack in the world!",
-            imgsrc: '#',
+            imgsrc: '/images/menu-page/french_fries.jpg',
             imgalt: "Image of a French Fries",
             price: 50
+        },
+        {
+            title: "Special Crostini",
+            desc: "Special farmer's bread grilled and topped with exotic vegetables - red and yellow capsicum, zucchini sun-dried tomatoes, roasted aubergine and cheese.",
+            imgsrc: '/images/menu-page/special_crostini.png',
+            imgalt: "Image of a Special Crostini",
+            price: 200
         }
     ],
     beverages: [
         {
             title: "Pepsi",
             desc: "Comes in cans of 100ml, or bottles of 200ml, 500ml and 1l",
-            imgsrc: '#',
+            imgsrc: '/images/menu-page/pepsi.jpg',
             imgalt: "Image of a Pepsi",
-            price: [50, 100, 150]
-        },
-        {
-            title: "Coca Cola",
-            desc: "Comes in cans of 100ml, or bottles of 200ml, 500ml and 1l",
-            imgsrc: '#',
-            imgalt: "Image of a Coca Cola",
-            price: [50, 100, 150]
-        },
-        {
-            title: "Sprite",
-            desc: "Comes in cans of 100ml, or bottles of 200ml, 500ml and 1l",
-            imgsrc: '#',
-            imgalt: "Image of a Sprite",
-            price: [50, 100, 150]
-        },
-        {
-            title: "Thumbs Up",
-            desc: "Comes in cans of 100ml, or bottles of 200ml, 500ml and 1l",
-            imgsrc: '#',
-            imgalt: "Image of a Thumbs Up",
             price: [50, 100, 150]
         },
         {
             title: "7 Up",
             desc: "Comes in cans of 100ml, or bottles of 200ml, 500ml and 1l",
-            imgsrc: '#',
+            imgsrc: '/images/menu-page/7up.png',
             imgalt: "Image of a 7 Up",
             price: [50, 100, 150]
         },
         {
             title: "Mirinda",
             desc: "Comes in cans of 100ml, or bottles of 200ml, 500ml and 1l",
-            imgsrc: '#',
+            imgsrc: '/images/menu-page/mirinda.png',
             imgalt: "Image of a Mirinda",
             price: [50, 100, 150]
         }
     ],
-    desserts: []
+    desserts: [
+        {
+            title: "Cream Caramel",
+            desc: "A sweet baked custard dripping with golden caramel",
+            imgsrc: '/images/menu-page/cream_caramel.png',
+            imgalt: "Image of a Cream Caramel",
+            price: 200
+        },
+        {
+            title: "Choco Lava Cake",
+            desc: "A home made italian classic sponge cake soaked in rum and chocolate, sprinkled with chocolate powder, served cold.",
+            imgsrc: '/images/menu-page/choco_lava_cake.png',
+            imgalt: "Image of a Choco Lava Cake",
+            price: 400
+        },
+        {
+            title: "Chocolate Avalanche",
+            desc: "Scoop of chocolate mousse, mocha, chocolate ice cream and fudge, topped with chocolate sauce.",
+            imgsrc: '/images/menu-page/chocolate_avalanche.png',
+            imgalt: "Image of a Chocolate Avalanche",
+            price: 200
+        }
+    ]
 }
 
 class MenuGroup extends React.Component{
     render(){
         return (
             <div className="menu-group">
-                {foodObj.pizza.map((item) => {
-                    return <MenuItem {...item} />
-                })}
+                <p className='menu-group-text'>starter</p>
+                <div className="menu-subgroup">
+                    {foodObj.starter.map((item) => {
+                        return <MenuItem {...item} />
+                    })}
+                </div>
+                <p className='menu-group-text'>pizza</p>
+                <div className="menu-subgroup">
+                    {foodObj.pizza.map((item) => {
+                        return <MenuItem {...item} />
+                    })}
+                </div>
+                <p className='menu-group-text'>sides</p>
+                <div className="menu-subgroup">
+                    {foodObj.sides.map((item) => {
+                        return <MenuItem {...item} />
+                    })}
+                </div>
+                <p className='menu-group-text'>beverages</p>
+                <div className="menu-subgroup">
+                    {foodObj.beverages.map((item) => {
+                        return <MenuItem {...item} />
+                    })}
+                </div>
+                <p className='menu-group-text'>desserts</p>
+                <div className="menu-subgroup">
+                    {foodObj.desserts.map((item) => {
+                        return <MenuItem {...item} />
+                    })}
+                </div>
             </div>
         );
     }
