@@ -3,38 +3,43 @@ import React, { Component } from "react";
 class FeedbackForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.onValueChange=this.onValueChange.bind(this)
+    this.formSubmit=this.formSubmit.bind(this)
+    this.state = {
+      value: 'Average'
+    };
   }
 
   onValueChange = e=> {
-    const { name,value}=e.target;
+     const { name,value}=e.target;
     this.setState({
-      [name]: value
+       [name]: value
     });
   };
 
   formSubmit = e=>  {
     e.preventDefault();
-    console.log(this.state.selectedOption)
+    console.log(this.state.value)
   }
 
   render() {
     return (
       <form onSubmit={this.formSubmit}>
         <h2>Feedback Form</h2>
-        <div className="R0">
+        <div className="Text">
           <p><h3>Dear Customer,<br/>
              Thank you for your visiting our restaurant.<br/>We would like to know how we performed. 
              Please spare some moments to give us your valuable feedback as it will help us in 
              improving our service.<br/>
              Please rate your service experience for the following parameters.</h3>
           </p>
-        </div>
+          </div>
+        <div className="Radio-button">
         <h3>
-        <div className="R1">
+        <div>
           Quality of food
         </div>
-        <div className="R1">
+        <div>
           <label>
             <input
               type="radio"
@@ -45,7 +50,7 @@ class FeedbackForm extends Component {
             Poor
           </label>
         </div>
-        <div className="R1">
+        <div>
           <label>
             <input
               type="radio"
@@ -56,19 +61,19 @@ class FeedbackForm extends Component {
             Fair
           </label>
         </div>
-        <div className="R1">
+        <div>
           <label>
             <input
               type="radio"
               value="Average"
               name="Qual"
-              defaultChecked
+              defaultChecked={this.state.value === "Average"}
               onChange={this.onValueChange}
             />
             Average
           </label>
         </div>
-        <div className="R1">
+        <div>
           <label>
             <input
               type="radio"
@@ -79,7 +84,7 @@ class FeedbackForm extends Component {
             Good
           </label>
         </div>
-        <div className="R1">
+        <div>
           <label>
             <input
               type="radio"
@@ -92,11 +97,11 @@ class FeedbackForm extends Component {
         </div>
         </h3>
         
-        <div className="R2">
+        <div>
           <h3>Quantity of food</h3>
         </div>
         <h3>
-        <div className="R2">
+        <div>
           <label>
             <input
               type="radio"
@@ -107,7 +112,7 @@ class FeedbackForm extends Component {
             Poor
           </label>
         </div>
-        <div className="R2">
+        <div>
           <label>
             <input
               type="radio"
@@ -118,19 +123,19 @@ class FeedbackForm extends Component {
             Fair
           </label>
         </div>
-        <div className="R2">
+        <div>
           <label>
             <input
               type="radio"
               value="Average"
               name="Quan"
-              defaultChecked
+              defaultChecked={this.state.value === "Average"}
               onChange={this.onValueChange}
             />
             Average
           </label>
         </div>
-        <div className="R2">
+        <div>
           <label>
             <input
               type="radio"
@@ -141,7 +146,7 @@ class FeedbackForm extends Component {
             Good
           </label>
         </div>
-        <div className="R2">
+        <div>
           <label>
             <input
               type="radio"
@@ -154,7 +159,7 @@ class FeedbackForm extends Component {
         </div>
         </h3>
         <h3>
-        <div className="R3">
+        <div>
           Timeliness of food delivery
         </div>
         <div className="R3">
@@ -168,7 +173,7 @@ class FeedbackForm extends Component {
             Poor
           </label>
         </div>
-        <div className="R3">
+        <div>
           <label>
             <input
               type="radio"
@@ -179,19 +184,19 @@ class FeedbackForm extends Component {
             Fair
           </label>
         </div>
-        <div className="R3">
+        <div>
           <label>
             <input
               type="radio"
               value="Average"
               name="Time"
-              defaultChecked
+              defaultChecked={this.state.value === "Average"}
               onChange={this.onValueChange}
             />
             Average
           </label>
         </div>
-        <div className="R3">
+        <div>
           <label>
             <input
               type="radio"
@@ -202,7 +207,7 @@ class FeedbackForm extends Component {
             Good
           </label>
         </div>
-        <div className="R3">
+        <div>
           <label>
             <input
               type="radio"
@@ -215,10 +220,10 @@ class FeedbackForm extends Component {
         </div>
         </h3>
         <h3>
-        <div className="R4">
+        <div>
           Value for money
         </div>
-        <div className="R4">
+        <div>
           <label>
             <input
               type="radio"
@@ -229,7 +234,7 @@ class FeedbackForm extends Component {
             Poor
           </label>
         </div>
-        <div className="R4">
+        <div>
           <label>
             <input
               type="radio"
@@ -240,19 +245,19 @@ class FeedbackForm extends Component {
             Fair
           </label>
         </div>
-        <div className="R4">
+        <div>
           <label>
             <input
               type="radio"
               value="Average"
               name="val"
-              defaultChecked
+              defaultChecked={this.state.value === "Average"}
               onChange={this.onValueChange}
             />
             Average
           </label>
         </div>
-        <div className="R4">
+        <div>
           <label>
             <input
               type="radio"
@@ -263,7 +268,7 @@ class FeedbackForm extends Component {
             Good
           </label>
         </div>
-        <div className="R4">
+        <div>
           <label>
             <input
               type="radio"
@@ -276,10 +281,10 @@ class FeedbackForm extends Component {
         </div>
         </h3>
         <h3>
-        <div className="R5">
+        <div>
           COVID-19 precautionary measure taken while serving food
         </div>
-        <div className="R5">
+        <div>
           <label>
             <input
               type="radio"
@@ -290,7 +295,7 @@ class FeedbackForm extends Component {
             Poor
           </label>
         </div>
-        <div className="R5">
+        <div>
           <label>
             <input
               type="radio"
@@ -301,19 +306,19 @@ class FeedbackForm extends Component {
             Fair
           </label>
         </div>
-        <div className="R5">
+        <div>
           <label>
             <input
               type="radio"
               value="Average"
               name="COVID"
-              defaultChecked
+              defaultChecked={this.state.value === "Average"}
               onChange={this.onValueChange}
             />
             Average
           </label>
         </div>
-        <div className="R5">
+        <div>
           <label>
             <input
               type="radio"
@@ -324,7 +329,7 @@ class FeedbackForm extends Component {
             Good
           </label>
         </div>
-        <div className="R5">
+        <div>
           <label>
             <input
               type="radio"
@@ -336,11 +341,13 @@ class FeedbackForm extends Component {
           </label>
         </div>
         </h3>
+        </div>
+        <div  className="Textarea">
         <h3>
-        <div className="R6">
+        <div>
           Based on your event,what should the Regent Ordinary improve for the future events?:
         </div>
-        <div className="R6">
+        <div>
           <textarea
               name="t1"
               onChange={this.onValueChange}
@@ -348,10 +355,10 @@ class FeedbackForm extends Component {
         </div>
         </h3>
         <h3>
-        <div className="R7">
+        <div>
           Was this your first event with us?:
         </div>
-        <div className="R7">
+        <div>
           <textarea
               name="t2"
               onChange={this.onValueChange}
@@ -359,16 +366,17 @@ class FeedbackForm extends Component {
         </div>
         </h3>
         <h3>
-        <div className="R8">
+        <div>
           Additional comments/suggestions:
         </div>
-        <div className="R8">
+        <div>
           <textarea
               name="t3"
               onChange={this.onValueChange}
           />
         </div>
         </h3>
+        </div>
         <button className="btn" type="submit">
           Submit
         </button>
