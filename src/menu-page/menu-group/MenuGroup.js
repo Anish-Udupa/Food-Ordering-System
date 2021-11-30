@@ -159,24 +159,24 @@ var foodObj = {
     beverages: [
         {
             title: "Pepsi",
-            desc: "Comes in cans of 100ml, or bottles of 200ml, 500ml and 1l",
+            desc: "Comes in bottles of 500ml",
             imgsrc: '/images/menu-page/pepsi.jpg',
             imgalt: "Image of a Pepsi",
-            price: [50, 100, 150]
+            price: 100
         },
         {
             title: "7 Up",
-            desc: "Comes in cans of 100ml, or bottles of 200ml, 500ml and 1l",
+            desc: "Comes in bottles of 500ml",
             imgsrc: '/images/menu-page/7up.png',
             imgalt: "Image of a 7 Up",
-            price: [50, 100, 150]
+            price: 100
         },
         {
             title: "Mirinda",
-            desc: "Comes in cans of 100ml, or bottles of 200ml, 500ml and 1l",
+            desc: "Comes in bottles of 500ml",
             imgsrc: '/images/menu-page/mirinda.png',
             imgalt: "Image of a Mirinda",
-            price: [50, 100, 150]
+            price: 100
         }
     ],
     desserts: [

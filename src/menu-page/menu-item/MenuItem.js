@@ -54,8 +54,8 @@ class MenuItem extends React.Component{
                     </div>
                     <div className="quantity">
                         <p>Quantity:{this.state.quantity}</p>
-                        <div className="increment-button" onClick={this.handleIncrementButton}><FontAwesomeIcon icon={faPlusSquare} /></div>
-                        <div className="decrement-button" onClick={this.handleDecrementButton}><FontAwesomeIcon icon={faMinusSquare} /></div>
+                        <div className="increment-button" onClick={this.handleIncrementButton}><FontAwesomeIcon icon={faPlusSquare} fixedWidth/></div>
+                        <div className="decrement-button" onClick={this.handleDecrementButton}><FontAwesomeIcon icon={faMinusSquare} fixedWidth/></div>
                     </div>
                 </div>
                 <div className="add-to-cart-button" onCLick={this.handleAddToCart}>Add To Cart</div>
