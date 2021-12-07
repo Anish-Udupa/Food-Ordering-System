@@ -1,91 +1,160 @@
-const express               =  require('express'),
-      app                   =  express(),
-      mongoose              =  require("mongoose"),
-      passport              =  require("passport"),
-      bodyParser            =  require("body-parser"),
-      LocalStrategy         =  require("passport-local"),
-      passportLocalMongoose =  require("passport-local-mongoose"),
-      User                  =  require("./models/user");
+import React, { Component } from "react";
 
 
-//Connecting database
-mongoose.connect("mongodb://localhost/auth");
+class LoginPage extends React.Component {
+    constructor() {
+      super();
+      this.state = {
+        fields: {},
+        errors: {}
+      }
 
-app.use(require("express-session")({
-    secret:"Any normal Word",       //decode or encode session
-    resave: false,          
-    saveUninitialized:false    
-}));
+      this.handleChange = this.handleChange.bind(this);
+      this.submitForm = this.submitForm.bind(this);
 
-passport.serializeUser(User.serializeUser());       //session encoding
-passport.deserializeUser(User.deserializeUser());   //session decoding
-passport.use(new LocalStrategy(User.authenticate()));
-app.set("view engine","ejs");
-app.use(bodyParser.urlencoded(
-      { extended:true }
-))
-app.use(passport.initialize());
-app.use(passport.session());
+    };
 
+    handleChange(e) {
+      let fields = this.state.fields;
+      fields[e.target.name] = e.target.value;
+      this.setState({
+        fields
+      });
 
-
-app.get("/", (req,res) =>{
-    res.render("home");
-})
-
-app.get("/userprofile",isLoggedIn ,(req,res) =>{
-    res.render("userprofile");
-})
-//Auth Routes
-app.get("/login",(req,res)=>{
-    res.render("login");
-});
-
-app.post("/login",passport.authenticate("local",{
-    successRedirect:"/userprofile",
-    failureRedirect:"/login"
-}),function (req, res){
-
-});
-
-app.get("/register",(req,res)=>{
-    res.render("register");
-});
-
-app.post("/register",(req,res)=>{
-    
-    User.register(new User({username: req.body.username,phone:req.body.phone,telephone: req.body.telephone,address: req.body.address}),req.body.password,function(err,user){
-        if(err){
-            console.log(err);
-            res.render("register");
-        }
-    passport.authenticate("local")(req,res,function(){
-        res.redirect("/login");
-    })    
-    })
-})
-
-app.get("/logout",(req,res)=>{
-    req.logout();
-    res.redirect("/");
-});
-
-function isLoggedIn(req,res,next) {
-    if(req.isAuthenticated()){
-        return next();
     }
-    res.redirect("/login");
+
+    submitForm(e) {
+      e.preventDefault();
+      if (this.validateForm()) {
+          let fields = {};
+          fields["name"] = "";
+          fields["mobileno"] = "";
+          fields["address"]="";
+          fields["creditcardtype"]="";
+          fields["creditcardno"]="";
+          fields["cardholdername"]="";
+          fields["dateofexpiry"]="";
+          fields["CVV"]="";
+          this.setState({fields:fields});
+          alert("Form submitted");
+      }
+
+    }
+
+    validateForm() {
+
+      let fields = this.state.fields;
+      let errors = {};
+      let formIsValid = true;
+
+      if (!fields["name"]) {
+        formIsValid = false;
+        errors["name"] = "*Please enter your name.";
+      }
+
+      if (!fields["mobileno"]) {
+        formIsValid = false;
+        errors["mobileno"] = "*Please enter your mobile no.";
+      }
+
+      if (typeof fields["mobileno"] !== "undefined") {
+        if (!fields["mobileno"].match(/^[0-9]{10}$/)) {
+          formIsValid = false;
+          errors["mobileno"] = "*Please enter valid mobile no.";
+        }
+      }
+
+      if (!fields["address"]) {
+        formIsValid = false;
+        errors["address"] = "*Please enter your address.";
+      }
+      if (!fields["creditcardtype"]) {
+        formIsValid = false;
+        errors["creditcardtype"] = "*Please enter type of credit card";
+      }
+      if (!fields["creditcardno"]) {
+        formIsValid = false;
+        errors["creditcardno"] = "*Please enter your credit card no.";
+      }
+
+      if (typeof fields["creditcardno"] !== "undefined") {
+        if (!fields["creditcardno"].match(/^(\d{0,4})(\d{0,4})(\d{0,4})(\d{0,4})$/)) {
+          formIsValid = false;
+          errors["creditcardno"] = "*Please enter valid credit card no.";
+        }
+      }
+      if (!fields["cardholdername"]) {
+        formIsValid = false;
+        errors["cardholdername"] = "*Please enter card holder name";
+      }
+      if (!fields["dateofexpiry"]) {
+        formIsValid = false;
+        errors["dateofexpiry"] = "*Please enter date of expiry";
+      }
+
+      if (typeof fields["dateofexpiry"] !== "undefined") {
+        if (!fields["dateofexpiry"].match(/^([0-9]{2}||[10-12]{2})\s([0-9]{2}||[10-99]{2})$/)) {
+          formIsValid = false;
+          errors["dateofexpiry"] = "*Please enter valid date of expiry";
+        }
+      }
+      if (!fields["CVV"]) {
+        formIsValid = false;
+        errors["CVV"] = "*Please enter CVV";
+      }
+
+     
+
+      this.setState({
+        errors: errors
+      });
+      return formIsValid;
+
+
+    }
+
+
+
+  render() {
+    return (
+    <div id="registerpage">
+     <div id="register">
+        <h3>Registration page:</h3>
+        <form method="post"  name="userRegistrationForm"  onSubmit= {this.submitForm} >
+        <label>Name:</label>
+        <input type="text" name="name" value={this.state.fields.name} onChange={this.handleChange} />
+        <div className="errorMsg">{this.state.errors.name}</div>
+        
+        <label>Mobile No:</label>
+        <input type="text" name="mobileno" value={this.state.fields.mobileno} onChange={this.handleChange}   />
+        <div className="errorMsg">{this.state.errors.mobileno}</div>
+        <label>Address:</label>
+        <input type="text" name="address" value={this.state.fields.address} onChange={this.handleChange} />
+        <div className="errorMsg">{this.state.errors.address}</div>
+        <label>Credit card type:</label>
+        <input type="text" name="creditcardtype" value={this.state.fields.creditcardtype} onChange={this.handleChange} />
+        <div className="errorMsg">{this.state.errors.creditcardtype}</div>
+        <label>Credit card number:</label>
+        <input type="text" name="creditcardno" value={this.state.fields.creditcardno} onChange={this.handleChange} />
+        <div className="errorMsg">{this.state.errors.creditcardno}</div>
+        <label>Card holder name:</label>
+        <input type="text" name="cardholdername" value={this.state.fields.cardholdername} onChange={this.handleChange} />
+        <div className="errorMsg">{this.state.errors.cardholdername}</div>
+        <label>Date of expiry:</label>
+        <input type="text" name="dateofexpiry" value={this.state.fields.dateofexpiry} onChange={this.handleChange} />
+        <div className="errorMsg">{this.state.errors.dateofexpiry}</div>
+        <label>CVV:</label>
+        <input type="text" name="CVV" value={this.state.fields.CVV} onChange={this.handleChange} />
+        <div className="errorMsg">{this.state.errors.CVV}</div>
+        <input type="submit" className="button"  value="Register"/>
+        </form>
+    </div>
+</div>
+
+      );
+  }
+
+
 }
 
-
-//Listen On Server
-
-
-app.listen(process.env.PORT ||3000,function (err) {
-    if(err){
-        console.log(err);
-    }else {
-        console.log("Server Started At Port 3000");
-    }
-      
-});
+export default LoginPage;
