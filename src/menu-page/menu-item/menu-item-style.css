@@ -3,6 +3,12 @@
     src: url('../../fonts/Roboto-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'Play-Bold';
+    src: url('../../fonts/Play-Bold.ttf');
+}
+
+
 * {
     padding: 5px;
     margin: 0px;
@@ -23,6 +29,7 @@
     font-size: 1.5em;
     text-align: center;
     text-transform: uppercase;
+    font-family: 'Play-Bold';
 }
 
 .price-quantity{

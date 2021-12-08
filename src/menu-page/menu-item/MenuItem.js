@@ -3,6 +3,7 @@ import './menu-item-style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
+import Header from '../../header/Header';
 
 
 class MenuItem extends React.Component{
