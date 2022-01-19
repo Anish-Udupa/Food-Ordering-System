@@ -232,37 +232,41 @@ var foodObj = {
 }
 
 class MenuGroup extends React.Component{
+    constructor(props){
+        super(props);
+    }
+    
     render(){
         return (
             <div className="menu-group">
                 <p className='menu-group-text' id='starter-text'>starter</p>
                 <div className="menu-subgroup">
                     {foodObj.starter.map((item) => {
-                        return <MenuItem {...item} />
+                        return <MenuItem key={item.item_id} store={this.props.store} {...item} />
                     })}
                 </div>
                 <p className='menu-group-text' id='pizza-text'>pizza</p>
                 <div className="menu-subgroup">
                     {foodObj.pizza.map((item) => {
-                        return <MenuItem {...item} />
+                        return <MenuItem key={item.item_id} store={this.props.store} {...item} />
                     })}
                 </div>
                 <p className='menu-group-text' id='sides-text'>sides</p>
                 <div className="menu-subgroup">
                     {foodObj.sides.map((item) => {
-                        return <MenuItem {...item} />
+                        return <MenuItem key={item.item_id} store={this.props.store} {...item} />
                     })}
                 </div>
                 <p className='menu-group-text' id='beverages-text'>beverages</p>
                 <div className="menu-subgroup">
                     {foodObj.beverages.map((item) => {
-                        return <MenuItem {...item} />
+                        return <MenuItem key={item.item_id} store={this.props.store} {...item} />
                     })}
                 </div>
                 <p className='menu-group-text' id='desserts-text'>desserts</p>
                 <div className="menu-subgroup">
                     {foodObj.desserts.map((item) => {
-                        return <MenuItem {...item} />
+                        return <MenuItem key={item.item_id} store={this.props.store} {...item} />
                     })}
                 </div>
             </div>

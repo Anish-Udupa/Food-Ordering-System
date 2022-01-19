@@ -52,12 +52,29 @@
 
 .add-to-cart-button{
     color: #fff;
-    background-color: #f00;
+    background-color: rgba(102, 65, 9, 40);
+    text-align: center;
+    padding: 5px 0px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 2%;
+    border: 1px solid black; 
+}
+
+.add-to-cart-button:hover, .remove-from-cart-button:hover{
+    
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.remove-from-cart-button{
+    color: #000;
+    background-color: rgba(238, 238, 238, 1);
     text-align: center;
     padding: 5px 0px;
     margin: 5px;
     cursor: pointer;
     border-radius: 2%;    
+    border: 1px solid black; 
 }
 
 img {

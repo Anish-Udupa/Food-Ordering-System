@@ -1,5 +1,5 @@
 import React from 'react';
-import './menu-header-style.css'
+import './menu-header-style.css';
 
 class MenuHeader extends React.Component{
     render(){

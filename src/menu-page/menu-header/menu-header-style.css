@@ -9,10 +9,10 @@
 }
 
 .menu-header{
-    /*   To position it on the screen throughout
+    /*   To position it on the screen throughout */
     position: sticky;
     top: 2px;
-    background-color: white; */
+    background-color: white;
 
     display: flex;
     flex-direction: row;

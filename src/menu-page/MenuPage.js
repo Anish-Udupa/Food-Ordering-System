@@ -1,14 +1,17 @@
 import React from 'react';
 import MenuHeader from './menu-header/MenuHeader';
 import MenuGroup from './menu-group/MenuGroup';
+import Cart from './cart/Cart';
 import Header from '../header/Header';
+import storeFactory from '../store/StoreFactory';
+
+
 
 class MenuPage extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            selected_item: this.props[0]
-        }
+        localStorage.removeItem('redux-store');
+        this.store = storeFactory();
     }
 
     render(){
@@ -16,7 +19,8 @@ class MenuPage extends React.Component{
             <>
                 <Header />
                 <MenuHeader />
-                <MenuGroup />
+                <MenuGroup  store={this.store}/>
+                <Cart store={this.store} />
             </>
         );
     }
