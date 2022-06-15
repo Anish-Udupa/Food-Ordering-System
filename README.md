@@ -1,6 +1,6 @@
 # Food Ordering System
 
-This is the official repository 'Food Ordering System' Project.
+This is the official repository 'Food Ordering System' Project - my 3rd sem Web Development Project.
 
 ## RULES
 1. Make sure that you have [node.js](https://nodejs.org/en/) installed.
