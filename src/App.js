@@ -1,15 +1,25 @@
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import "./App.css";
+import MenuPage from './menu-page/MenuPage';
+import ContactPage from './contact-page/ContactPage'
+import OrderConfirmPage from './order-confirm-page/OrderConfirmPage'
 import Header from './header/Header';
 import HomePage from './home-page/HomePage';
-import MenuPage from './menu-page/MenuPage';
 
 let App = (props) => {
     return(
-        <>
-            {/* Insert your code below this */}
+        <div id="app-container">
             <Header />
-            <HomePage />
-            {/* Insert your code above this */}
-        </>
+            <div id="main-content-container">
+            <Routes>
+                <Route path='/' element={<HomePage />} />
+                <Route path='/menu' element={<MenuPage />} />
+                <Route path='/contact' element={<ContactPage />} />
+                <Route path='/order-successful' element={<OrderConfirmPage />} />
+            </Routes>
+            </div>
+        </div>
     );
 }
 
