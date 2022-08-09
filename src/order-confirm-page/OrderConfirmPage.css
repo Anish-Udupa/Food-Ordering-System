@@ -1,0 +1,12 @@
+#order-confirm-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#order-confirm-area-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}

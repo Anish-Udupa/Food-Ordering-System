@@ -1,7 +1,18 @@
-function OrderSuccessful(props){
+import "./OrderConfirmPage.css";
+import OrderMap from "./components/order-map/OrderMap";
+import OrderStage from "./components/order-stage/OrderStage";
+import OrderDetails from "./components/order-details/OrderDetails";
+
+function OrderConfirmPage(props){
     return (
-        <p>Your order is successful!</p>
+        <div id="order-confirm-container">
+            <div id="order-confirm-area-container">
+                <OrderMap />
+                <OrderStage />
+            </div>
+            <OrderDetails />
+        </div>
     );
 }
 
-export default OrderSuccessful;
+export default OrderConfirmPage;
