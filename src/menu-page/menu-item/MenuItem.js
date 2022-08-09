@@ -24,28 +24,29 @@ class MenuItem extends React.Component{
     }
 
     handleIncrementButton(){
-        if (this.state.added_to_cart){
-        let obj = {
-            id: this.props.item_id,
-            name: this.props.title, 
-            quantity: this.state.quantity + 1,
-            price:  this.props.price
+        if (!this.state.added_to_cart){
+            this.handleAddToCart();
         }
-        let action = {
-            type: types.INCREMENT_QUANTITY,
-            obj: obj
-        }
-        this.props.store.dispatch(action);
+            let obj = {
+                id: this.props.item_id,
+                name: this.props.title, 
+                quantity: this.state.quantity + 1,
+                price:  this.props.price
+            }
+            let action = {
+                type: types.INCREMENT_QUANTITY,
+                obj: obj
+            }
+            this.props.store.dispatch(action);
 
-        this.setState(
-            (state) => ({
-                quantity: state.quantity + 1,
-                price: state.price + this.props.price,
-                added_to_cart: (state.added_to_cart),
-                cart_text: state.cart_text
-            })
-        );
-        }
+            this.setState(
+                (state) => ({
+                    quantity: state.quantity + 1,
+                    price: state.price + this.props.price,
+                    added_to_cart: (state.added_to_cart),
+                    cart_text: state.cart_text
+                })
+            );
     }
 
     handleDecrementButton(){

@@ -5,7 +5,7 @@ const url = require('url');
 
 var MongoClient = require('mongodb').MongoClient;
 
-class Cart extends React.Component{
+class Checkout extends React.Component{
     constructor(props){
         super(props);
         this.checkout = this.checkout.bind(this)
@@ -29,4 +29,4 @@ class Cart extends React.Component{
     }
 }
 
-export default Cart;
+export default Checkout;

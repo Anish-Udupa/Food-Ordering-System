@@ -1,10 +1,10 @@
 import React from 'react';
 import MenuHeader from './menu-header/MenuHeader';
 import MenuGroup from './menu-group/MenuGroup';
-import Cart from './cart/Cart';
+import Checkout from './checkout/Checkout';
+import Cart from './cart/CartIcon';
 import Header from '../header/Header';
 import storeFactory from '../store/StoreFactory';
-
 
 
 class MenuPage extends React.Component{
@@ -17,9 +17,9 @@ class MenuPage extends React.Component{
     render(){
         return(
             <>
-                <Header />
                 <MenuHeader />
                 <MenuGroup  store={this.store}/>
+                <Checkout store={this.store} />
                 <Cart store={this.store} />
             </>
         );

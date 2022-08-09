@@ -1,0 +1,15 @@
+#cart-icon {
+    color: red;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    position: fixed;
+    right: 10px;
+    bottom: 1%;
+}
+
+#cart-icon:hover{
+    cursor: pointer;
+    color: rgba(255, 0, 0, 0.5);
+}
