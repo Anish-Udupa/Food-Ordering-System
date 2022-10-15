@@ -6,6 +6,8 @@ import ContactPage from './contact-page/ContactPage'
 import OrderConfirmPage from './order-confirm-page/OrderConfirmPage'
 import Header from './header/Header';
 import HomePage from './home-page/HomePage';
+import LoginPage from "./login-page/LoginPage";
+import Signup from './signup/Signup';
 
 let App = (props) => {
     return(
@@ -14,6 +16,8 @@ let App = (props) => {
             <div id="main-content-container">
             <Routes>
                 <Route path='/' element={<HomePage />} />
+                <Route path='/login' element={<LoginPage />} />
+                <Route path='/signup' element={<Signup />} />
                 <Route path='/menu' element={<MenuPage />} />
                 <Route path='/contact' element={<ContactPage />} />
                 <Route path='/order-successful' element={<OrderConfirmPage />} />
