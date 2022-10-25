@@ -1,9 +1,7 @@
 import React  from "react";
 import { Link } from 'react-router-dom';
 var axios = require('axios');
-const url = require('url');
 
-var MongoClient = require('mongodb').MongoClient;
 
 class Checkout extends React.Component{
     constructor(props){

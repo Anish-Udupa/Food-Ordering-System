@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import "./LoginPage.css";
-import { SERVER_URL } from "../ServerDetails";
+import axios from "axios";
 
 function LoginPage(props) {
     const email_input_ref = useRef();
@@ -20,9 +20,7 @@ function LoginPage(props) {
         };
         
         if(emailValidator(email)){
-            fetch(`${SERVER_URL}/api/login`, {
-                body: JSON.stringify(creds)
-            })
+            axios.post(`localhost:8080/login`, creds)
         }
         console.log(email, password);
     }
