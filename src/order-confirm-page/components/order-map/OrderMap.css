@@ -1,0 +1,6 @@
+#order-map-img {
+    object-fit: cover;
+    height: 100%;
+    width: 60%;
+    border-radius: 20px;
+}

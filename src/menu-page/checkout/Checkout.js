@@ -15,7 +15,7 @@ class Checkout extends React.Component{
         let currState = this.props.store.getState()
         let obj = currState.items;
 
-        axios.post('http://localhost:8080/order-insert', obj)
+        axios.post('http://localhost:8080/place-order', obj)
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
     }

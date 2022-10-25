@@ -1,6 +1,8 @@
+import "./OrderMap.css";
+
 const OrderMap = () => {
     return (
-        <p>Order Map</p>
+        <img id="order-map-img" src="/images/order-confirm-page/order_map.png" alt="order map" />
     )
 }
 
