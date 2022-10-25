@@ -16,7 +16,20 @@
     flex-direction: column;
     align-items: center;
     border: 1px solid black;
-    overflow-y: auto;
+    border-radius: 10px;
+    padding: 20px;
+    /* overflow-y: auto; */
+}
+
+#signup-page-heading {
+    font-size: 35px;
+    margin: 40px 0px;
+    margin-top: 20px;
+}
+
+.signup-page-subheading {
+    margin: 0px 10px;
+    padding: 0;
 }
 
 .signup-input-box {
@@ -38,4 +51,21 @@
 
 #signup-btn:hover {
     background-color: rgb(61, 38, 3)
+}
+
+#signup-page-login, #signup-page-login-link {
+    font-size: 20px;
+    padding: 5px;
+    color: black;
+    text-decoration: none;
+}
+
+#signup-page-login-link{
+    color: red;
+}
+
+#signup-page-login-link:hover{
+    background-color: rgba(255, 0, 0, 0.5);
+    color: white;
+    border-radius: 5px;
 }

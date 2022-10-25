@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useRef } from "react";
 import "./Signup.css";
+import { Link } from "react-router-dom";
 
 function Signup(){
     const input_fname_ref = useRef();
@@ -50,13 +51,14 @@ function Signup(){
     return (
         <div id="signup-page-container">
             <div id="signup-container">
+                <p id="signup-page-heading">Create An Account</p>
                 <div>
-                    <p>Personal Details:</p>
+                    <p className="signup-page-subheading">Personal Details:</p>
                     <input className="signup-input-box" type="text" ref={input_fname_ref} placeholder="First Name" required/>
                     <input className="signup-input-box" type="text" ref={input_lname_ref} placeholder="Last Name" required/>
                 </div>
                 <div>
-                    <p>Address Details:</p>
+                    <p className="signup-page-subheading">Address Details:</p>
                     <input className="signup-input-box" type="text" ref={input_house_no_ref} placeholder="House Number" required/>
                     <input className="signup-input-box" type="text" ref={input_street_ref} placeholder="Street" required/>
                     <br />
@@ -64,16 +66,19 @@ function Signup(){
                     <input className="signup-input-box" type="text" ref={input_city_ref} placeholder="City" required/>
                 </div>
                 <div>
-                    <p>Conatct Details:</p>
+                    <p className="signup-page-subheading">Contact Details:</p>
                     <input className="signup-input-box" type="email" ref={input_email_ref} placeholder="Email Id" required/>
                     <input className="signup-input-box" type="text" ref={input_phone_ref} placeholder="Phone Number" required/>
                 </div>
                 <div>
-                    <p>Login Details:</p>
+                    <p className="signup-page-subheading">Login Details:</p>
                     <input className="signup-input-box" type="password" ref={input_password_ref} placeholder="Password" required/>
                     <input className="signup-input-box" type="password" ref={input_confirm_password_ref} placeholder="Confirm Password" required/>
                 </div>
-                <div id="signup-btn" onClick={onSubmitBtnClicked}>SUBMIT</div>
+                <div id="signup-btn" onClick={onSubmitBtnClicked}>SIGN UP</div>
+            </div>
+            <div id="login-page-signup-container">
+                <p id="signup-page-login">Already have an account?</p><Link to="/login" id="signup-page-login-link">Login</Link>
             </div>
         </div>
     )

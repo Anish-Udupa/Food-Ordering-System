@@ -1,3 +1,8 @@
+:root {
+    /* Defining fonts */
+    --stylish-font: 'Pacifico';
+}
+
 #app-container {
     width: 100%;
     display: flex;

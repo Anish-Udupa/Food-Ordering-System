@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import "./LoginPage.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function LoginPage(props) {
     const email_input_ref = useRef();
@@ -28,10 +29,13 @@ function LoginPage(props) {
     return (
         <div id="login-page-container">
             <div id="login-container">
-                <p>LOGIN</p>
+                <p id="login-page-heading">LOGIN</p>
                 <input type="email" className="login-input-box" placeholder="Email Id" ref={email_input_ref} />
                 <input type="password" className="login-input-box" placeholder="Password" ref={passwd_input_ref} />
                 <div id="login-btn" onClick={handleLoginBtnClick}>LOGIN</div>
+            </div>
+            <div id="login-page-signup-container">
+                <p id="login-page-signup">Dont have an account?</p><Link to="/signup" id="login-page-signup-link">Signup</Link>
             </div>
         </div>
     );
