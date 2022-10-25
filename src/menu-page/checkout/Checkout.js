@@ -1,7 +1,8 @@
 import React  from "react";
 import { Link } from 'react-router-dom';
-var axios = require('axios');
-
+import "./Checkout.css";
+// var axios = require('axios');
+import axios from "axios";
 
 class Checkout extends React.Component{
     constructor(props){
@@ -20,8 +21,8 @@ class Checkout extends React.Component{
 
     render(){
         return(
-            <div className="cart-container">
-                <div className='checkout-button' onClick={this.checkout}><Link to='/order-successful'>PROCEED TO CHECKOUT</Link></div>
+            <div id="checkout-container">
+                <div id='checkout-button' onClick={this.checkout}><Link to='/order-successful' id="checkout-button-text">PROCEED TO CHECKOUT</Link></div>
             </div>
         );
     }
