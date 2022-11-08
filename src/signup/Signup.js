@@ -1,7 +1,8 @@
 import axios from "axios";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import "./Signup.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Signup(){
     const input_fname_ref = useRef();
@@ -14,6 +15,14 @@ function Signup(){
     const input_phone_ref = useRef();
     const input_password_ref = useRef();
     const input_confirm_password_ref = useRef();
+    const navigate = useNavigate();
+
+    // Initial checking
+    useEffect(() => {
+        let uname = localStorage.getItem("login-details");
+        if(uname != null)
+            navigate("/menu");
+    }, [])
 
     const onSubmitBtnClicked = () => {
         let fname = input_fname_ref.current.value;
@@ -26,8 +35,12 @@ function Signup(){
         let phone = input_phone_ref.current.value;
         let password = input_password_ref.current.value;
         let confirm_password = input_confirm_password_ref.current.value;
-
-        if(password === confirm_password){
+        if(fname === "" || lname === "" || house_no === "" || street === "" || area === "" || city === "" || email === "" || phone === "" || password === ""){
+            alert("Fields cant be empty");
+            
+        }
+        else if(password === confirm_password){
+            console.log("Submitting data");
             let data = {
                 fname: fname,
                 lname: lname,
@@ -39,13 +52,25 @@ function Signup(){
                 phone: phone,
                 password: password,
             }
-            axios.post("localhost:8080/signup",data)
+            axios.post("http://localhost:8080/signup",data)
             .then(res => {
-                console.log(res);
+                console.log(res.data);
+                let status = res.data.status;
+                if(status === true){
+                    // Storing creds in localstorage
+                    localStorage.setItem("login-details", `{name: ${fname}}`)
+                    navigate("/menu");
+                }
+                else{
+                    alert("Something went wrong. Please try again later.")
+                }
             })
             .catch(err => {
                 console.log(err);
             })
+        }
+        else {
+            alert("Password and confirm password are not matching.")
         }
     }
     return (

@@ -1,11 +1,18 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import "./LoginPage.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function LoginPage(props) {
     const email_input_ref = useRef();
     const passwd_input_ref = useRef();
+    const navigate = useNavigate();
+
+    // initial check if user is already logged in
+    useEffect(() => {
+        if(localStorage.getItem("login-details") != null)
+            navigate("/menu");
+    }, []);
 
     const emailValidator = (email) => {
         const pattern = /\w+@\w+\.\w+/i;
@@ -21,7 +28,22 @@ function LoginPage(props) {
         };
         
         if(emailValidator(email)){
-            axios.post(`localhost:8080/login`, creds)
+            axios.post(`http://localhost:8080/login`, creds)
+            .then(res => {
+                let data = res.data;
+                // console.log(data);
+                if(data.status === true && data.name != null){
+                    // Storing creds in localstorage
+                    localStorage.setItem("login-details", `{name: ${data.name}}`)
+                    navigate("/menu");
+                }
+                else {
+                    alert("Incorrect Email or Password")
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
         }
         console.log(email, password);
     }
