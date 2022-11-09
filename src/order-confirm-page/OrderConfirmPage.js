@@ -12,8 +12,15 @@ function OrderConfirmPage(props){
     // Initially check if any items are selected. If not, redirect to menu
     useEffect(() => {
         const items = localStorage.getItem("redux-store");
+        const login = localStorage.getItem("login-details");
+
         if(items === undefined || items === null){
+            alert("Your cart is empty. Please add some items.");
             navigate("/menu");
+        }
+        else if(login === undefined || login === null){
+            alert("Please login to continue");
+            navigate("/login");
         }
         else
             setItemPresent(true);
