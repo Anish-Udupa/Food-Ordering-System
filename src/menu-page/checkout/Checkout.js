@@ -11,12 +11,18 @@ class Checkout extends React.Component{
     }
 
     checkout(){
-        let currState = this.props.store.getState()
-        let obj = currState.items;
+        // let currState = this.props.store.getState();
+        // const uid = JSON.parse(localStorage.getItem("login-details")).uid;
+        // let obj = {
+        //     uid: uid,
+        //     total_cost: currState.total_cost,
+        //     items: currState.items,
+        // };
+        // console.log(obj)
 
-        axios.post('http://localhost:8080/place-order', obj)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+        // axios.post('http://localhost:8080/place-order', obj)
+        // .then((res) => console.log(res))
+        // .catch((err) => console.log(err));
     }
 
     render(){

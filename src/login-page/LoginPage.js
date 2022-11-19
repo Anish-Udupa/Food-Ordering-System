@@ -34,7 +34,7 @@ function LoginPage(props) {
                 // console.log(data);
                 if(data.status === true && data.name != null){
                     // Storing creds in localstorage
-                    localStorage.setItem("login-details", `{uid: ${data.uid}, name: ${data.name}}`)
+                    localStorage.setItem("login-details", JSON.stringify({uid: data.uid, name: data.name}))
                     navigate("/menu");
                 }
                 else {

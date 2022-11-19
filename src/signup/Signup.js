@@ -58,7 +58,7 @@ function Signup(){
                 let status = res.data.status;
                 if(status === true){
                     // Storing creds in localstorage
-                    localStorage.setItem("login-details", `{uid: ${res.data.uid}, name: ${res.data.name}}`)
+                    localStorage.setItem("login-details", JSON.stringify({uid: res.data.uid, name: res.data.name}))
                     navigate("/menu");
                 }
                 else{

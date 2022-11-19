@@ -4,10 +4,12 @@ import OrderStage from "./components/order-stage/OrderStage";
 import OrderDetails from "./components/order-details/OrderDetails";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function OrderConfirmPage(props){
     const navigate = useNavigate();
     const [ itemsPresent, setItemPresent ] = useState(false);
+    const [ transactionData, setTransactionData ] = useState(null);
 
     // Initially check if any items are selected. If not, redirect to menu
     useEffect(() => {
@@ -22,8 +24,34 @@ function OrderConfirmPage(props){
             alert("Please login to continue");
             navigate("/login");
         }
-        else
-            setItemPresent(true);
+        else{
+            const uid = JSON.parse(login).uid;
+            let obj = {
+                uid: uid,
+                total_cost: JSON.parse(items).total_cost,
+                items: JSON.parse(items).items,
+            };
+            console.log(obj)
+
+            axios.post('http://localhost:8080/place-order', obj)
+            .then((res) => {
+                const data = res.body;
+                if(data.status === false){
+                    alert("Something went wrong while processing your transaction. Please try again.");
+                    navigate("/menu");
+                }
+                else{
+                    setTransactionData(data);
+                    setItemPresent(true);
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+                alert("Something went wrong while processing your transaction. Please try again.");
+                navigate("/menu")
+            });
+            
+        }
     }, [])
     return (
         itemsPresent &&
@@ -32,7 +60,7 @@ function OrderConfirmPage(props){
             
             <div id="order-confirm-area-container">
                 <OrderStage />
-                <OrderDetails />
+                <OrderDetails items={transactionData.order_data.items} bill_no={transactionData.bill_no} total_cost={transactionData.order_data.total_cost} />
             </div>
         </div>)
     );

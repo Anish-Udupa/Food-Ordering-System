@@ -1,7 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import './menu-group-style.css';
-import MenuItem from '../menu-item/MenuItem';
-import axios from 'axios';
+// data = [
+// [1,"Pasta Masala Mafia","Spicy succulent sauce with red/yellow capsicum, tomato cubes, onion, chilli, garlic cooked to perfection, tossed with fresh cream and parsely.",200,"Starter","/images/menu-page/pasta_masala_mafia.png","Image of a Pasta Masala Mafia"],
+// [2,"Pummorola","Fresh tomato sauce, fresh basil and parmesan cheese.",150,"Starter","/images/menu-page/pummorola.png","Image of a Pummorola"],
+// [3,"Pasta Bolognese","Spaghetti served with sauce made of fresh tomato and soya mince.",150,"Starter","/images/menu-page/pasta_bolognese.png","Image of a Pasta Bolognese"],
+// [4,"Jalapeno Poppers","Melted cheese nuggets with jalapenos deep fried and served with mayonnaise dip.",100,"Starter","/images/menu-page/jalapeno_poppers.jpg","Image of a Jalapeno Poppers"],
+// [5,"Jalapeno Salsa","Jalapeno tossed in creamy sauce, served with thin crispy toast.",200, "Starter","/images/menu-page/jalapeno_salsa.jpg","Image of a Jalapeno Salsa"],
+// [6,"Cheese Fondue","Melted cheese in white wine with italian herbs, served with croutons and exotic vegetables.",300,"Starter","/images/menu-page/cheese_fondue.jpg","Image of a Cheese Fondue"],
+// [7,"Classic Margerita","A bubbly crust pizza with crushed San Marzano tomato sauce, fresh mozzarella and basil, a drizzle of olive oil, and a sprinkle of salt",100,"Pizza","images/menu-page/classic_margerita.png","Image of a Classic Margerita"],
+// [8,"Veggie Paradise","A delicious pizza topped with fresh chopped tomatoes, onion, capsicum, babycorn, olives and finally sprinkled with cheddar cheese",200,"Pizza","images/menu-page/veggie_paradise.png","Image of a Veggie Paradise"],
+// [9,"Peppy Paneer","A medium crust pizza topped with fresh cubes of paneer, hot red chilli, a few bits of sliced capsicum and finally sprinkled with mozzarella",150,"Pizza",'images/menu-page/peppy_paneer.png',"Image of a Peppy Paneer"],
+// [10,"Classic Corn Pizza","A medium crust pizza topped with corn and sprinkled with cheddar",100,"Pizza",'images/menu-page/cheese_and_corn.png',"Image of a Classic Corn And Onion"],
+// [11,"Veggie Feast",]
+// ]
 
 var foodObj = {
     starter: [
@@ -232,86 +241,4 @@ var foodObj = {
     ]
 }
 
-// class MenuGroup extends React.Component{
-//     constructor(props){
-//         super(props);
-//     }
-    
-//     render(){
-//         return (
-//             <div className="menu-group">
-//                 <p className='menu-group-text' id='starter-text'>starter</p>
-//                 <div className="menu-subgroup">
-//                     {foodObj.starter.map((item) => {
-//                         return <MenuItem key={item.item_id} store={this.props.store} {...item} />
-//                     })}
-//                 </div>
-//                 <p className='menu-group-text' id='pizza-text'>pizza</p>
-//                 <div className="menu-subgroup">
-//                     {foodObj.pizza.map((item) => {
-//                         return <MenuItem key={item.item_id} store={this.props.store} {...item} />
-//                     })}
-//                 </div>
-//                 <p className='menu-group-text' id='sides-text'>sides</p>
-//                 <div className="menu-subgroup">
-//                     {foodObj.sides.map((item) => {
-//                         return <MenuItem key={item.item_id} store={this.props.store} {...item} />
-//                     })}
-//                 </div>
-//                 <p className='menu-group-text' id='beverages-text'>beverages</p>
-//                 <div className="menu-subgroup">
-//                     {foodObj.beverages.map((item) => {
-//                         return <MenuItem key={item.item_id} store={this.props.store} {...item} />
-//                     })}
-//                 </div>
-//                 <p className='menu-group-text' id='desserts-text'>desserts</p>
-//                 <div className="menu-subgroup">
-//                     {foodObj.desserts.map((item) => {
-//                         return <MenuItem key={item.item_id} store={this.props.store} {...item} />
-//                     })}
-//                 </div>
-//             </div>
-//         );
-//     }
-// }
-
-function MenuGroup({store}){
-    const [ foodObj, setFoodObj ] = useState(null);
-
-    const getMenu = async () => {
-        try{
-            const res = await axios.get("http://localhost:8080/get-menu")
-            console.log(res.data);
-            setFoodObj(res.data);
-        }
-        catch(err) {
-            console.log(err);
-        }
-    }
-
-    useEffect(() => {
-        getMenu();
-    }, [])
-    return (
-        foodObj && (
-            <div className="menu-group">
-                {
-                    Object.keys(foodObj).map((key) => {
-                        return (
-                            <>
-                            <p className='menu-group-text' id='desserts-text'>{key}</p>
-                            <div className="menu-subgroup">
-                                {foodObj[key].map((item) => {
-                                    return <MenuItem key={item.item_id} store={store} {...item} />
-                                })}
-                            </div>
-                            </>
-                        )
-                    })
-                }
-            </div>
-        )
-    )
-}
-
-export default MenuGroup;
+export { foodObj };
