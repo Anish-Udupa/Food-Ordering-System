@@ -1,6 +1,7 @@
 :root {
     /* Defining fonts */
     --stylish-font: 'Pacifico';
+    --primary-brown: rgba(102, 65, 9, 1);
 }
 
 #app-container {

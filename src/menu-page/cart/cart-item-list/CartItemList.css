@@ -1,0 +1,22 @@
+.cart-item-list-item, .cart-item-list-item-heading {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.cart-item-list-item-heading {
+    background-color: var(--primary-brown);
+    color: white;
+}
+
+.cart-item-list-item-name {
+    width: 50%;
+}
+
+.cart-item-list-item-price, .cart-item-list-item-quantity {
+    width: 15%;
+}
+
+.cart-item-list-item-total-price {
+    width: auto;
+}

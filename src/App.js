@@ -7,6 +7,7 @@ import Header from './header/Header';
 import HomePage from './home-page/HomePage';
 import LoginPage from "./login-page/LoginPage";
 import Signup from './signup/Signup';
+import Payment from './payment/Payment';
 
 let App = (props) => {
     return(
@@ -18,6 +19,7 @@ let App = (props) => {
                 <Route path='/login' element={<LoginPage />} />
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/menu' element={<MenuPage />} />
+                <Route path="/payment" element={<Payment />} />
                 <Route path='/order-successful' element={<OrderConfirmPage />} />
             </Routes>
             </div>

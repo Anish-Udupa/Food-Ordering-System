@@ -1,7 +1,0 @@
-{
-            title: "",
-            desc: "",
-            imgsrc: '#',
-            imgalt: "Image of a ",
-            price: 200
-        }

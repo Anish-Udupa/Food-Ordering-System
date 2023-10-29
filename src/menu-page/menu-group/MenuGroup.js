@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
 import './menu-group-style.css';
 import MenuItem from '../menu-item/MenuItem';
-import axios from 'axios';
 
+/*
 var foodObj = {
     starter: [
         {
@@ -231,81 +230,24 @@ var foodObj = {
         }
     ]
 }
+*/
 
-// class MenuGroup extends React.Component{
-//     constructor(props){
-//         super(props);
-//     }
-    
-//     render(){
-//         return (
-//             <div className="menu-group">
-//                 <p className='menu-group-text' id='starter-text'>starter</p>
-//                 <div className="menu-subgroup">
-//                     {foodObj.starter.map((item) => {
-//                         return <MenuItem key={item.item_id} store={this.props.store} {...item} />
-//                     })}
-//                 </div>
-//                 <p className='menu-group-text' id='pizza-text'>pizza</p>
-//                 <div className="menu-subgroup">
-//                     {foodObj.pizza.map((item) => {
-//                         return <MenuItem key={item.item_id} store={this.props.store} {...item} />
-//                     })}
-//                 </div>
-//                 <p className='menu-group-text' id='sides-text'>sides</p>
-//                 <div className="menu-subgroup">
-//                     {foodObj.sides.map((item) => {
-//                         return <MenuItem key={item.item_id} store={this.props.store} {...item} />
-//                     })}
-//                 </div>
-//                 <p className='menu-group-text' id='beverages-text'>beverages</p>
-//                 <div className="menu-subgroup">
-//                     {foodObj.beverages.map((item) => {
-//                         return <MenuItem key={item.item_id} store={this.props.store} {...item} />
-//                     })}
-//                 </div>
-//                 <p className='menu-group-text' id='desserts-text'>desserts</p>
-//                 <div className="menu-subgroup">
-//                     {foodObj.desserts.map((item) => {
-//                         return <MenuItem key={item.item_id} store={this.props.store} {...item} />
-//                     })}
-//                 </div>
-//             </div>
-//         );
-//     }
-// }
-
-function MenuGroup({store}){
-    const [ foodObj, setFoodObj ] = useState(null);
-
-    const getMenu = async () => {
-        try{
-            const res = await axios.get("http://localhost:8080/get-menu")
-            console.log(res.data);
-            setFoodObj(res.data);
-        }
-        catch(err) {
-            console.log(err);
-        }
-    }
-
-    useEffect(() => {
-        getMenu();
-    }, [])
+function MenuGroup({store, menu}){
+    // const [ foodObj, setFoodObj ] = useState(null);
     return (
-        foodObj && (
+        menu && (
             <div className="menu-group">
                 {
-                    Object.keys(foodObj).map((key) => {
+                    Object.keys(menu).map((key) => {
                         return (
-                            <>
-                            <p className='menu-group-text' id='desserts-text'>{key}</p>
-                            <div className="menu-subgroup">
-                                {foodObj[key].map((item) => {
-                                    return <MenuItem key={item.item_id} store={store} {...item} />
-                                })}
+                            <div key={key}>
+                                <p className='menu-group-text' id={`${key}-text`}>{key}</p>
+                                <div className="menu-subgroup">
+                                    {menu[key].map((item) => {
+                                        return <MenuItem key={item.item_id} store={store} {...item} />
+                                    })}
+                                </div>
                             </div>
-                            </>
                         )
                     })
                 }
