@@ -1,0 +1,19 @@
+#order-progress-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#order-progress-heading {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.order-progress-item-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.order-progress-current-item {
+    border-radius: 5px;
+    background-color: var(--primary-brown-faded);
+}

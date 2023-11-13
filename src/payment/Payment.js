@@ -15,7 +15,7 @@ function Payment(){
     const getUserData = async () => {
         try {
             const data = (await axios.get(`${process.env.REACT_APP_BACKEND_SERVER_URL}/api/user-details`, { withCredentials: true })).data;
-            if(data)
+            if(data && data.success === true)
                 setUserData(data.user);
             else
                 navigate("/menu");
@@ -40,7 +40,7 @@ function Payment(){
     return (
         bill_data && user_data && 
         <div id="payment-container">
-            <PaymentGateway />
+            <PaymentGateway bill={bill_data} />
             <BillInfo user={user_data} bill={bill_data} />
         </div>
     )

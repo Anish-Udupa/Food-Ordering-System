@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import "./Signup.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -16,15 +16,9 @@ function Signup(){
     const input_password_ref = useRef();
     const input_confirm_password_ref = useRef();
     const navigate = useNavigate();
+    const [ error_msg , setErrorMsg ] = useState(null);
 
-    // Initial checking
-    useEffect(() => {
-        let uname = localStorage.getItem("login-details");
-        if(uname != null)
-            navigate("/menu");
-    }, [])
-
-    const onSubmitBtnClicked = () => {
+    const onSubmitBtnClicked = async () => {
         let fname = input_fname_ref.current.value;
         let lname = input_lname_ref.current.value;
         let house_no = input_house_no_ref.current.value;
@@ -35,42 +29,32 @@ function Signup(){
         let phone = input_phone_ref.current.value;
         let password = input_password_ref.current.value;
         let confirm_password = input_confirm_password_ref.current.value;
+
         if(fname === "" || lname === "" || house_no === "" || street === "" || area === "" || city === "" || email === "" || phone === "" || password === ""){
-            alert("Fields cant be empty");
+            setErrorMsg("Fields cant be empty");
             
         }
         else if(password === confirm_password){
-            console.log("Submitting data");
             let data = {
-                fname: fname,
-                lname: lname,
-                house_no: house_no,
-                street: street,
-                area: area,
-                city: city,
+                name: `${fname} ${lname}`,
+                address: `${house_no}, ${street}, ${area}, ${city}`,
                 email: email,
                 phone: phone,
                 password: password,
             }
-            axios.post("http://localhost:8080/signup",data)
-            .then(res => {
-                console.log(res.data);
-                let status = res.data.status;
-                if(status === true){
-                    // Storing creds in localstorage
-                    localStorage.setItem("login-details", JSON.stringify({uid: res.data.uid, name: res.data.name}))
-                    navigate("/menu");
+            try {
+                const res_data = await (await axios.post(`${process.env.REACT_APP_BACKEND_SERVER_URL}/api/signup`, data)).data;
+                if(res_data.success === true) {
+                    navigate("/login");
                 }
-                else{
-                    alert("Something went wrong. Please try again later.")
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            })
+            }
+            catch(err) {
+                setErrorMsg("Server error. Try again.")
+            }
+            
         }
         else {
-            alert("Password and confirm password are not matching.")
+            setErrorMsg("Password and confirm password are not matching.")
         }
     }
     return (
@@ -101,6 +85,7 @@ function Signup(){
                     <input className="signup-input-box" type="password" ref={input_confirm_password_ref} placeholder="Confirm Password" required/>
                 </div>
                 <div id="signup-btn" onClick={onSubmitBtnClicked}>SIGN UP</div>
+                {error_msg && <p id="err-mgs-p">{error_msg}</p>}
             </div>
             <div id="login-page-signup-container">
                 <p id="signup-page-login">Already have an account?</p><Link to="/login" id="signup-page-login-link">Login</Link>

@@ -12,6 +12,7 @@ function MenuPage(){
     const navigate = useNavigate();
     const [ loggedIn, setLoggedIn ] = useState(false);
     const [ menu, setMenu ] = useState(null);
+    
 
     const getMenu = async () => {
         try {
@@ -20,10 +21,10 @@ function MenuPage(){
                 const data = req.data;
                 if(data && data.success === true && data.menu !== undefined) {
                     setLoggedIn(true);
-                    localStorage.removeItem("redux-store");
+                    localStorage.removeItem("menu");
                     setStore(storeFactory());
     
-                    console.log(data);
+                    // console.log(data);
                     setMenu(data.menu);
                 }
                 else {

@@ -1,5 +1,8 @@
 #bill-info-container {
     width: 50%;
+    background-color: var(--primary-brown-faded);
+    border-radius: 10px;
+    padding: 10px 20px;
 }
 
 #bill-info-heading {
@@ -16,9 +19,40 @@
     gap: 10px;
 }
 
+.bill-info-sub-heading {
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
 #bill-info-table {
     width: 100%;
     border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+#bill-info-table-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--primary-brown);
+    color: white;
+}
+
+.bill-info-table-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* .bill-info-table-items:nth-child(odd) {
+    background-color: var(--primary-brown-faded);
+} */
+
+.bill-info-table-item-name-p {
+    width: 40%;
 }
 
 .td-right {

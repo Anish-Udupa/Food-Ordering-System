@@ -45,3 +45,8 @@
 #payment-gateway-pay-btn:hover {
     background-color: rgb(61, 38, 3)
 }
+
+#payment-gateway-err-msg {
+    color: red;
+    font-size: 0.8em;
+}

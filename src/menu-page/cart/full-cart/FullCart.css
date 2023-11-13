@@ -82,3 +82,15 @@
     justify-content: space-between;
     align-items: center;
 }
+
+@media screen and (max-width: 800px) {
+    #full-cart-details-container {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #full-cart-details-container {
+        width: calc(100% - 40px);
+    }
+}

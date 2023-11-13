@@ -1,0 +1,12 @@
+#order-status-container {
+    width: 100;
+    display: flex;
+    flex-direction: row;
+    gap: 1%;
+}
+
+#order-status-left-container {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}

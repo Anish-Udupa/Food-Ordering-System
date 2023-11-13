@@ -2,6 +2,7 @@
     /* Defining fonts */
     --stylish-font: 'Pacifico';
     --primary-brown: rgba(102, 65, 9, 1);
+    --primary-brown-faded: rgba(102, 65, 9, 0.2);
 }
 
 #app-container {

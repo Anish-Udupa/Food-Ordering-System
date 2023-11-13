@@ -69,3 +69,8 @@
     color: white;
     border-radius: 5px;
 }
+
+#err-mgs-p {
+    color: red;
+    font-size: 0.8em;
+}
